@@ -1,5 +1,5 @@
 <template>
-        <main>
+    <main>
         <div class="banner coffepage-banner">
             <div class="container">
                 <div class="row">
@@ -7,7 +7,7 @@
                         <nav-bar-component />
                     </div>
                 </div>
-                <h1 class="title-big">Our Coffee</h1>
+                <header-title-component text="Our Coffee" />
             </div>
         </div>
         <section class="shop">
@@ -35,7 +35,8 @@
                     <div class="col-lg-4 offset-2">
                         <form action="#" class="shop__search">
                             <label class="shop__search-label" for="filter">Looking for</label>
-                            <input id="filter" type="text" placeholder="start typing here..." class="shop__search-input">
+                            <input id="filter" type="text" placeholder="start typing here..."
+                                class="shop__search-input">
                         </form>
                     </div>
                     <div class="col-lg-4">
@@ -54,12 +55,42 @@
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
-                            <product-card />
-                            <product-card />
-                            <product-card />
-                            <product-card />
-                            <product-card />
-                            <product-card />
+                            <product-card 
+                            classItem="shop__item"
+                            :name="coffee[0].name" 
+                            :price="coffee[0].price" 
+                            :image="coffee[0].image" 
+                            />
+                            <product-card 
+                            classItem="shop__item"
+                            :name="coffee[1].name" 
+                            :price="coffee[1].price" 
+                            :image="coffee[1].image" 
+                            />
+                            <product-card 
+                            classItem="shop__item"
+                            :name="coffee[2].name" 
+                            :price="coffee[2].price" 
+                            :image="coffee[2].image" 
+                            />
+                            <product-card 
+                            classItem="shop__item"
+                            :name="coffee[3].name" 
+                            :price="coffee[3].price" 
+                            :image="coffee[3].image" 
+                            />
+                            <product-card 
+                            classItem="shop__item"
+                            :name="coffee[4].name" 
+                            :price="coffee[4].price" 
+                            :image="coffee[4].image" 
+                            />
+                            <product-card 
+                            classItem="shop__item"
+                            :name="coffee[5].name" 
+                            :price="coffee[5].price" 
+                            :image="coffee[5].image" 
+                            />
                         </div>
                     </div>
                 </div>
@@ -71,53 +102,54 @@
 <script>
 import NavBarComponent from '@/components/NavBarComponent.vue';
 import ProductCard from '@/components/ProductCard.vue';
+import HeaderTitleComponent from '@/components/HeaderTitleComponent.vue';
 
 export default {
-    components: {NavBarComponent, ProductCard},
+    components: { NavBarComponent, ProductCard, HeaderTitleComponent },
     data() {
         return {
-            cards: [
+            coffee: [
                 {
                     id: 0,
-                    img: 'coffee-1.jpg',
-                    title: 'Solimo Coffee Beans 2kg',
+                    image: 'coffee-1.jpg',
+                    name: 'Solimo Coffee Beans 2kg',
                     country: 'Brazil',
-                    price: '10.73$',
+                    price: 10.73,
                 },
                 {
                     id: 1,
-                    img: 'coffee-2.jpg',
-                    title: 'Presto Coffee Beans 1kg',
+                    image: 'coffee-2.jpg',
+                    name: 'Presto Coffee Beans 1kg',
                     country: 'Brazil',
-                    price: '15.99$',
+                    price: 15.99,
                 },
                 {
                     id: 2,
-                    img: 'coffee-3.jpg',
-                    title: 'AROMISTICO Coffee 1kg',
+                    image: 'coffee-3.jpg',
+                    name: 'AROMISTICO Coffee 1kg',
                     country: 'Brazil',
-                    price: '6.99$',
+                    price: 6.99,
                 },
                 {
                     id: 3,
-                    img: 'coffee-1.jpg',
-                    title: 'Solimo Coffee Beans 2kg',
+                    image: 'coffee-1.jpg',
+                    name: 'Solimo Coffee Beans 2kg',
                     country: 'Brazil',
-                    price: '10.73$',
+                    price: 10.73,
                 },
                 {
                     id: 4,
-                    img: 'coffee-2.jpg',
-                    title: 'Presto Coffee Beans 1kg',
+                    image: 'coffee-2.jpg',
+                    name: 'Presto Coffee Beans 1kg',
                     country: 'Brazil',
-                    price: '15.99$',
+                    price: 15.99,
                 },
                 {
                     id: 5,
-                    img: 'coffee-3.jpg',
-                    title: 'AROMISTICO Coffee 1kg',
+                    image: 'coffee-3.jpg',
+                    name: 'AROMISTICO Coffee 1kg',
                     country: 'Brazil',
-                    price: '6.99$',
+                    price: 6.99,
                 },
             ]
         }

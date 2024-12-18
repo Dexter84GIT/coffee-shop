@@ -9,15 +9,21 @@
                                 <img :src="require(`@/assets/logo/${links[0].icon}`)" :alt="links[0].icon">
                             </router-link>
                         </li>
-                        <li class="footer__item">
-                            <router-link :to="links[1].link">{{ links[1].text }}</router-link>
-                        </li>
-                        <li class="footer__item">
-                            <router-link :to="links[2].link">{{ links[2].text }}</router-link>
-                        </li>
-                        <li class="footer__item">
-                            <router-link :to="links[3].link">{{ links[3].text }}</router-link>
-                        </li>
+                        <menu-link-component 
+                        class="footer__item"
+                        :text="links[1].text"
+                        :link="links[1].link"
+                        />
+                        <menu-link-component 
+                        class="footer__item"
+                        :text="links[2].text"
+                        :link="links[2].link"
+                        />
+                        <menu-link-component 
+                        class="footer__item"
+                        :text="links[3].text"
+                        :link="links[3].link"
+                        />
                     </ul>
                 </div>
             </div>
@@ -27,7 +33,10 @@
 </template>
 
 <script>
+import MenuLinkComponent from './MenuLinkComponent.vue';
+
 export default {
+    components: {MenuLinkComponent},
     data() {
         return {
             links: [
