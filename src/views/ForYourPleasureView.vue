@@ -37,40 +37,12 @@
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
                             <product-card 
+                            v-for="good in goods"
+                            :key="good.id"
                             classItem="shop__item"
-                            :name="goods[0].name" 
-                            :price="goods[0].price" 
-                            :image="goods[0].image" 
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="goods[1].name" 
-                            :price="goods[1].price" 
-                            :image="goods[1].image" 
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="goods[2].name" 
-                            :price="goods[2].price" 
-                            :image="goods[2].image" 
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="goods[3].name" 
-                            :price="goods[3].price" 
-                            :image="goods[3].image" 
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="goods[4].name" 
-                            :price="goods[4].price" 
-                            :image="goods[4].image" 
-                            />
-                            <product-card 
-                            classItem="shop__item"
-                            :name="goods[5].name" 
-                            :price="goods[5].price" 
-                            :image="goods[5].image" 
+                            :name="good.name" 
+                            :price="good.price" 
+                            :image="good.image" 
                             />
                         </div>
                     </div>
@@ -84,6 +56,7 @@
 import NavBarComponent from '@/components/NavBarComponent.vue';
 import ProductCard from '@/components/ProductCard.vue';
 import HeaderTitleComponent from '@/components/HeaderTitleComponent.vue';
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
     components: { NavBarComponent, ProductCard, HeaderTitleComponent },
@@ -91,44 +64,44 @@ export default {
         return {
             goods: [
                 {
-                    id: 0,
+                    id: uuidv4(),
                     image: 'coffee-1.jpg',
                     name: 'Solimo Coffee Beans 2kg',
                     country: 'Brazil',
                     price: 10.73,
                 },
                 {
-                    id: 1,
+                    id: uuidv4(),
                     image: 'coffee-2.jpg',
                     name: 'Presto Coffee Beans 1kg',
                     country: 'Brazil',
                     price: 15.99,
                 },
                 {
-                    id: 2,
+                    id: uuidv4(),
                     image: 'coffee-3.jpg',
                     name: 'AROMISTICO Coffee 1kg',
                     country: 'Brazil',
                     price: 6.99,
                 },
                 {
-                    id: 3,
+                    id: uuidv4(),
                     image: 'coffee-1.jpg',
-                    name: 'Solimo Coffee Beans 2kg',
+                    name: 'Solimo Coffee Beans 22kg',
                     country: 'Brazil',
                     price: 10.73,
                 },
                 {
-                    id: 4,
+                    id: uuidv4(),
                     image: 'coffee-2.jpg',
-                    name: 'Presto Coffee Beans 1kg',
+                    name: 'Presto Coffee Beans 11kg',
                     country: 'Brazil',
                     price: 15.99,
                 },
                 {
-                    id: 5,
+                    id: uuidv4(),
                     image: 'coffee-3.jpg',
-                    name: 'AROMISTICO Coffee 1kg',
+                    name: 'AROMISTICO Coffee 12kg',
                     country: 'Brazil',
                     price: 6.99,
                 },

@@ -4,25 +4,22 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <ul class="footer d-flex flex-wrap">
-                        <li class=" footer__item">
-                            <router-link :to="links[0].link">>
-                                <img :src="require(`@/assets/logo/${links[0].icon}`)" :alt="links[0].icon">
-                            </router-link>
-                        </li>
-                        <menu-link-component 
-                        class="footer__item"
-                        :text="links[1].text"
-                        :link="links[1].link"
+                        <menu-link-component
+                        :link="links.main.link"
+                        classLink="footer__item"
+                        >
+                        <img 
+                        :src="require(`@/assets/logo/${links.main.icon}`)" 
+                        :alt="links.main.icon"
                         />
+            </menu-link-component>
+
                         <menu-link-component 
-                        class="footer__item"
-                        :text="links[2].text"
-                        :link="links[2].link"
-                        />
-                        <menu-link-component 
-                        class="footer__item"
-                        :text="links[3].text"
-                        :link="links[3].link"
+                        v-for="link of links.other"
+                        :key="link.id"
+                        classLink="footer__item"
+                        :text="link.text"
+                        :link="link.link"
                         />
                     </ul>
                 </div>
@@ -34,33 +31,36 @@
 
 <script>
 import MenuLinkComponent from './MenuLinkComponent.vue';
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
     components: {MenuLinkComponent},
     data() {
         return {
-            links: [
-                {
-                    id: 0,
+            links: {
+                main: {
+                    id: uuidv4(),
                     link: '/',
-                    icon: 'Logo_black.svg',
-                },
+                    icon: 'Logo_black.svg'
+                }, 
+                other: [
                 {
-                    id: 1,
+                    id: uuidv4(),
                     text: 'Our coffee',
                     link: '/our-coffee',
                 },
                 {
-                    id: 2,
+                    id: uuidv4(),
                     text: 'For your pleasure',
                     link: '/goodview',
                 },
                 {
-                    id: 3,
+                    id: uuidv4(),
                     text: 'Contact Us',
                     link: '/contacts',
                 }
             ]
+            }
         }
     }
 }
