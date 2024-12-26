@@ -13,12 +13,13 @@
                         <img class="beanslogo" src="@/assets/logo/Beans_logo.svg" alt="Beans logo">
                         <div class="preview__subtitle">We makes every day full of energy and taste</div>
                         <div class="preview__subtitle">Want to try our beans?</div>
-                        <a href="./coffeepage.html" class="preview__btn">More</a>
+                        <a @click.prevent="smoothScroll" href="./coffeepage.html" class="preview__btn">
+                            More</a>
                     </div>
                 </div>
             </div>
         </div>
-        <section class="about">
+        <section class="about" id="about" ref="about">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 offset-lg-3">
@@ -43,18 +44,14 @@
         </section>
         <section class="best">
             <div class="container">
-                <div class="title">Our best</div>
+                <div class="title" ref="ourBest">Our best</div>
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="best__wrapper">
-                            <product-card 
-                            v-for="good in bestsellers"
-                            :key="good.id"
-                            classItem="best__item"
-                            :name="good.name" 
-                            :price="good.price" 
-                            :image="good.image" 
-                            />
+
+                            <product-card v-for="good in bestsellers" :key="good.id" classItem="best__item"
+                                :name="good.name" :price="good.price" :image="good.image" />
+
                         </div>
                     </div>
                 </div>
@@ -70,8 +67,10 @@ import ProductCard from '@/components/ProductCard.vue';
 import HeaderTitleComponent from '@/components/HeaderTitleComponent.vue';
 import { v4 as uuidv4 } from 'uuid';
 
+import { scrollIntoView } from "seamless-scroll-polyfill";
+
 export default {
-    components: {NavBarComponent, ProductCard, HeaderTitleComponent},
+    components: { NavBarComponent, ProductCard, HeaderTitleComponent },
     data() {
         return {
             bestsellers: [
@@ -95,7 +94,15 @@ export default {
                 },
             ]
         }
+    },
+    methods: {
+        smoothScroll() {
+            scrollIntoView(this.$refs.ourBest, {
+                behavior: "smooth",
+                block: "start",
+            });
+        }
+
     }
 }
-
 </script>
