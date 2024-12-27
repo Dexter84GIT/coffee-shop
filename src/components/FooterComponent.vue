@@ -24,32 +24,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default {
     components: { MenuLinkComponent },
-    data() {
-        return {
-            links: {
-                main: {
-                    id: uuidv4(),
-                    link: '/',
-                    icon: 'Logo_black.svg'
-                },
-                other: [
-                    {
-                        id: uuidv4(),
-                        text: 'Our coffee',
-                        link: '/our-coffee',
-                    },
-                    {
-                        id: uuidv4(),
-                        text: 'For your pleasure',
-                        link: '/goodview',
-                    },
-                    {
-                        id: uuidv4(),
-                        text: 'Contact Us',
-                        link: '/contacts',
-                    }
-                ]
-            }
+    computed: {
+        links() {
+            return this.$store.getters['getFooterLinks'];
         }
     }
 }
