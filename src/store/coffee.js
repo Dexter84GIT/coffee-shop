@@ -1,6 +1,6 @@
-const goods = {
+const coffee = {
     state: {
-        goods: [
+        coffee: [
             {
                 id: 0,
                 image: 'coffee-1.jpg',
@@ -46,10 +46,10 @@ const goods = {
         ]
     },
     getters: {
-        getGoods(state) {
-            return state.goods
+        getCoffee(state) {
+            return state.coffee
         }
     }
 }
 
-export default goods
+export default coffee

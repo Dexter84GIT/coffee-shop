@@ -83,8 +83,6 @@ export default {
     },
     computed: {
         bestsellers() {
-            console.log(this.$store.getters['getBestseller']);
-            
             return this.$store.getters['getBestseller'];
         }
     },

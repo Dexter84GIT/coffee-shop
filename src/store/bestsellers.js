@@ -19,14 +19,14 @@ const bestsellers = {
                 id: 2,
                 image: 'coffee-3.jpg',
                 name: 'AROMISTICO Coffee 1kg',
-                price: 6.99,
+                price: 7.99,
                 className: 'best__item',
             },
         ]
     },
     getters: {
         getBestseller(state) {
-            return {bestsellers: state.bestsellers}
+            return state.bestsellers
         },
     }
 }

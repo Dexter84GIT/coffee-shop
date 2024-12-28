@@ -56,12 +56,12 @@
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
                             <product-card 
-                            v-for="good in coffee"
-                            :key="good.id"
-                            classItem="shop__item"
-                            :name="good.name" 
-                            :price="good.price" 
-                            :image="good.image" 
+                              v-for="good in coffee"
+                              :key="good.id"
+                              className="shop__item"
+                              :name="good.name"
+                              :price="good.price"
+                              :image="good.image"
                             />
                         </div>
                     </div>
@@ -77,54 +77,13 @@ import ProductCard from '@/components/ProductCard.vue';
 import HeaderTitleComponent from '@/components/HeaderTitleComponent.vue';
 import { v4 as uuidv4 } from 'uuid';
 
+import coffee from '@/store/coffee';
+
 export default {
     components: { NavBarComponent, ProductCard, HeaderTitleComponent },
-    data() {
-        return {
-            coffee: [
-                {
-                    id: uuidv4(),
-                    image: 'coffee-1.jpg',
-                    name: 'Solimo Coffee Beans 2kg',
-                    country: 'Brazil',
-                    price: 10.73,
-                },
-                {
-                    id: uuidv4(),
-                    image: 'coffee-2.jpg',
-                    name: 'Presto Coffee Beans 1kg',
-                    country: 'Brazil',
-                    price: 15.99,
-                },
-                {
-                    id: uuidv4(),
-                    image: 'coffee-3.jpg',
-                    name: 'AROMISTICO Coffee 1kg',
-                    country: 'Brazil',
-                    price: 6.99,
-                },
-                {
-                    id: uuidv4(),
-                    image: 'coffee-1.jpg',
-                    name: 'Solimo Coffee Beans 2kg',
-                    country: 'Brazil',
-                    price: 10.73,
-                },
-                {
-                    id: uuidv4(),
-                    image: 'coffee-2.jpg',
-                    name: 'Presto Coffee Beans 1kg',
-                    country: 'Brazil',
-                    price: 15.99,
-                },
-                {
-                    id: uuidv4(),
-                    image: 'coffee-3.jpg',
-                    name: 'AROMISTICO Coffee 1kg',
-                    country: 'Brazil',
-                    price: 6.99,
-                },
-            ]
+    computed: {
+        coffee() {
+            return this.$store.getters['getCoffee'];
         }
     }
 }
