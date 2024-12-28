@@ -39,7 +39,7 @@
                             <product-card 
                             v-for="good in goods"
                             :key="good.id"
-                            classItem="shop__item"
+                            className="shop__item"
                             :name="good.name" 
                             :price="good.price" 
                             :image="good.image" 
@@ -56,7 +56,6 @@
 import NavBarComponent from '@/components/NavBarComponent.vue';
 import ProductCard from '@/components/ProductCard.vue';
 import HeaderTitleComponent from '@/components/HeaderTitleComponent.vue';
-import { v4 as uuidv4 } from 'uuid';
 
 export default {
     components: { NavBarComponent, ProductCard, HeaderTitleComponent },
