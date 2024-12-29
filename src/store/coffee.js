@@ -25,23 +25,22 @@ const coffee = {
             {
                 id: 3,
                 image: 'coffee-1.jpg',
-                name: 'Solimo Coffee Beans 22kg',
+                name: 'Solimo Coffee Beans 2kg',
                 price: 10.73,
 
             },
             {
                 id: 4,
                 image: 'coffee-2.jpg',
-                name: 'Presto Coffee Beans 11kg',
+                name: 'Presto Coffee Beans 1kg',
                 price: 15.99,
 
             },
             {
                 id: 5,
                 image: 'coffee-3.jpg',
-                name: 'AROMISTICO Coffee 12kg',
+                name: 'AROMISTICO Coffee 2kg',
                 price: 6.99,
-
             },
         ]
     },

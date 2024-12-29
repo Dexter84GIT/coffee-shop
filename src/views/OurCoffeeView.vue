@@ -55,14 +55,8 @@
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
                         <div class="shop__wrapper">
-                            <product-card 
-                              v-for="good in coffee"
-                              :key="good.id"
-                              className="shop__item"
-                              :name="good.name"
-                              :price="good.price"
-                              :image="good.image"
-                            />
+                            <product-card v-for="card in coffee" :key="card.id" className="shop__item" :card="card"
+                                @onNavigate="navigate" />
                         </div>
                     </div>
                 </div>
@@ -79,12 +73,20 @@ import { v4 as uuidv4 } from 'uuid';
 
 import coffee from '@/store/coffee';
 
+import { navigate } from '@/mixins/navigate';
+
 export default {
     components: { NavBarComponent, ProductCard, HeaderTitleComponent },
     computed: {
         coffee() {
             return this.$store.getters['getCoffee'];
         }
-    }
+    },
+    data() {
+        return {
+            name: 'coffee'
+        }
+    },
+    mixins: [navigate]
 }
 </script>
