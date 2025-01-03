@@ -85,8 +85,10 @@
                                         <span style="color: red;">*</span>
                                         <input 
                                         v-model="v$.agree.$model" 
-                                        type="checkbox" class="" 
+                                        type="checkbox" 
+                                        class="" 
                                         name="agree"
+                                        checked="checked"
                                         id="agree">
 
                                     </label>
@@ -129,7 +131,7 @@ export default {
             name: '',
             email: '',
             phone: '',
-            agree: false,
+            agree: true,
             message: ''
         }
     },
