@@ -126,31 +126,6 @@ export default {
     setup() {
         return { v$: useVuelidate() }
     },
-    data() {
-        return {
-            name: '',
-            email: '',
-            phone: '',
-            agree: true,
-            message: ''
-        }
-    },
-    methods: {
-        async submitForm() {
-            const isFormCorrect = await this.v$.$validate()
-            if (!isFormCorrect) return
-
-            console.log({
-                name: this.name,
-                email: this.email,
-                phone: this.phone,
-                agree: this.agree,
-                message: this.message
-            });
-
-
-        }
-    },
     components: { NavBarComponent, HeaderTitleComponent },
     validations() {
         return {
@@ -167,6 +142,35 @@ export default {
                 minLength: helpers.withMessage('В сообщении должно быть не менее 5 символов', minLength)
             }
         }
-    }
+    },
+    data() {
+        return {
+            name: '',
+            email: '',
+            phone: '',
+            agree: true,
+            message: ''
+        }
+    },
+    methods: {
+        async submitForm() {
+            const isFormCorrect = await this.v$.$validate()
+            if (!isFormCorrect) return
+
+            const message = {
+                name: this.name,
+                email: this.email,
+                phone: this.phone,
+                message: this.message,
+            }
+            fetch('http://localhost:3000/contacts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(message)
+            })
+        }
+    },
 }
 </script>
