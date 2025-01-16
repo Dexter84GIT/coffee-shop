@@ -1,7 +1,7 @@
 export const navigate = {
     methods: {
         navigate(id) {
-            this.$router.push({title: this.title, params: {id: id}});
+            this.$router.push({name: this.name, params: {id: id}});
         }
     }
 }

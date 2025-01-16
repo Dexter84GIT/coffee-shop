@@ -4,7 +4,7 @@ const bestsellers = {
             {
                 id: 0,
                 image: 'coffee-1.jpg',
-                name: 'Solimo Coffee Beans 2kg',
+                name: 'Solimo Coffee Beans 22kg',
                 price: 10.73,
                 className: 'best__item',
             },
