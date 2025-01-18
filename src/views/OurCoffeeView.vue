@@ -111,7 +111,7 @@ export default {
     methods: {
         onSearch:
             debounce(function() {
-              console.log('test');
+              console.log('testtest');
             }, 500),
         onSort(value) {
             fetch(`http://localhost:3000/coffee?q=${value}`)
