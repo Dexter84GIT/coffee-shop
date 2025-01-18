@@ -4,7 +4,6 @@ const bestsellers = {
     },
     actions: {
         setSestsellersData({ commit }, data) {
-            console.log(data);
             commit('setSestsellersData', data)
         }
     },
