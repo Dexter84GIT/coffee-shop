@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="shop__filter">
-                            <div class="shop__filter-label">
+                            <div class="shop__filter-label" @click="onCancel()">
                                 Or filter
                             </div>
                             <div class="shop__filter-group">
@@ -119,7 +119,16 @@ export default {
                 .then(data => {
                     this.$store.dispatch('setCoffeeData', data)
                 })
-        }
+        },
+        onCancel() {
+            const input = document.querySelector('#filter')
+            input.value = ''
+            fetch(`http://localhost:3000/coffee`)
+                .then(res => res.json())
+                .then(data => {
+                    this.$store.dispatch('setCoffeeData', data)
+                })
+        },
     }
 }
 </script>
